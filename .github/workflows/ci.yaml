@@ -29,3 +29,5 @@ jobs:
       - run: |
           buf --version
           buf push --error-format github-actions --create --git-metadata
+        env:
+          BUF_TOKEN: ${{ secrets.BUF_TOKEN }}
