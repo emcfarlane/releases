@@ -1,2 +1,6 @@
 version: v2
-name: buf.build/emcfarlane/foo
+modules:
+  - path: proto
+    name: buf.build/emcfarlane/library
+deps:
+  - buf.build/googleapis/googleapis
