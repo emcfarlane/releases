@@ -3,12 +3,11 @@ syntax = "proto3";
 package library.v1;
 
 import "google/api/annotations.proto";
-import "google/api/http.proto";
 import "google/protobuf/timestamp.proto";
 
 service LibraryService {
   // Gets a book.
-  rpc GetBook(GetBookRequest) returns (Book) {
+  rpc GetBook(GetBookRequest) returns (GetBookResponse) {
     option (google.api.http) = {get: "/v1/books/*"};
     option idempotency_level = NO_SIDE_EFFECTS;
   }
@@ -27,7 +26,7 @@ message Book {
   // The title of the book.
   string title = 5;
   // The name of the author.
-  string author = 6;
+   string author = 6;
   // The description of the book.
   string description = 7;
   // Resource labels to represent user provided metadata.
@@ -37,4 +36,9 @@ message Book {
 message GetBookRequest {
   // Resource name of a book. For example: "shelves/shelf1/books/book2".
   string name = 1;
+}
+
+message GetBookResponse {
+  // A book.
+  Book book = 1;
 }
