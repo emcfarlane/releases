@@ -1,33 +1,17 @@
 name: Buf action CI
 on:
   push:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+  delete:
 permissions:
   contents: read
   pull-requests: write
 jobs:
-  build:
+  buf:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          echo "HELLO"
-          git status
-          git ls-remote --heads --tags
-      - uses: actions/setup-go@v5
+      - uses: bufbuild/buf-action@v0.1
         with:
-          go-version: "^1.22"
-      - uses: actions/cache@v4
-        with:
-          path: |
-            ~/.cache/go-build
-            ~/go/pkg/mod
-          key: ${{ runner.os }}-go-cache-${{ hashFiles('Makefile') }}
-          restory-keys: ${{ runner.os }}-go-cache-
-      - run: go install github.com/bufbuild/buf/cmd/buf@ed/fixGitMetadataPseudorefs
-        env:
-          GOPROXY: direct
-      - run: |
-          buf --version
-          buf push --error-format github-actions --create --git-metadata
-        env:
-          BUF_TOKEN: ${{ secrets.BUF_TOKEN }}
+          token: ${{ secrets.BUF_TOKEN }}
