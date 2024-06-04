@@ -26,7 +26,7 @@ message Book {
   // The title of the book.
   string title = 5;
   // The name of the author.
-   string author = 6;
+  string author = 6;
   // The description of the book.
   string description = 7;
   // Resource labels to represent user provided metadata.
