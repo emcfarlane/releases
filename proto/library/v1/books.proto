@@ -36,9 +36,9 @@ message Book {
     // The read status is unspecified.
     READ_STATUS_UNSPECIFIED = 0;
     // The book is read.
-    READ = 1;
+    READ_STATUS_READ = 1;
     // The book is not read.
-    UNREAD = 2;
+    READ_STATUS_UNREAD = 2;
   }
   ReadStatus read_status = 9;
 }
