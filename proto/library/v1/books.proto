@@ -41,8 +41,6 @@ message Book {
     READ_STATUS_UNREAD = 2;
   }
   ReadStatus read_status = 9;
-  // The read time of the book.
-  google.protobuf.Timestamp read_time = 10;
 }
 
 message GetBookRequest {
