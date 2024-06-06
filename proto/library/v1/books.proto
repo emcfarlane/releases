@@ -31,6 +31,16 @@ message Book {
   string description = 7;
   // Resource labels to represent user provided metadata.
   map<string, string> labels = 8;
+  // The read status of the book.
+  enum ReadStatus {
+    // The read status is unspecified.
+    READ_STATUS_UNSPECIFIED = 0;
+    // The book is read.
+    READ_STATUS_READ = 1;
+    // The book is not read.
+    READ_STATUS_UNREAD = 2;
+  }
+  ReadStatus read_status = 9;
 }
 
 message GetBookRequest {
