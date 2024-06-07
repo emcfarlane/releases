@@ -23,8 +23,8 @@ message Book {
   google.protobuf.Timestamp update_time = 3;
   // The time when the book was deleted.
   google.protobuf.Timestamp delete_time = 4;
-  //
-  int64 title = 5;
+  // The title of the book.
+  required int64 title = 5;
   // The name of the author.
   string author_name = 6;
   // The description of the book.
