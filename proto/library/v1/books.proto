@@ -24,7 +24,7 @@ message Book {
   // The time when the book was deleted.
   google.protobuf.Timestamp delete_time = 4;
   // The title of the book.
-  required int64 title = 5;
+  string Title = 5 [json_name = "title"];
   // The name of the author.
   string author_name = 6;
   // The description of the book.
