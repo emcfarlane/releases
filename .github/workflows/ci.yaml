@@ -26,7 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          submodules: true
+          submodules: recursive
       - uses: bufbuild/buf-action@1efb02dd3dfcc834347df3fba562d0238b94ab0c
         with:
           token: ${{ secrets.BUF_TOKEN }}
