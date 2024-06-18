@@ -5,7 +5,6 @@ on:
       - '**.proto'
       - buf.yaml
       - buf.lock
-      - 'proto/**'
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
   delete:
