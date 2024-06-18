@@ -3,11 +3,12 @@ on:
   push:
     paths:
       - '**.proto'
+      - buf.yaml
+      - buf.lock
+      - 'proto/**'
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
   delete:
-    paths:
-      - 'proto/**'
 permissions:
   contents: read
   pull-requests: write
