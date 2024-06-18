@@ -5,7 +5,6 @@ on:
       - '**.proto'
       - buf.yaml
       - buf.lock
-      - 'proto/**'
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
   delete:
@@ -26,6 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: bufbuild/buf-action@1efb02dd3dfcc834347df3fba562d0238b94ab0c
+      - uses: bufbuild/buf-action@v0.1
         with:
-          token: ${{ secrets.BUF_TOKEN }}
+          token: ${{ secrets.SINGLE_TENANT_BUF_TOKEN }}
