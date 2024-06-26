@@ -48,6 +48,8 @@ message Book {
 message GetBookRequest {
   // Resource name of a book. For example: "shelves/shelf1/books/book2".
   string name = 1;
+  // The fields to return. If not set or empty, all fields are returned.
+  string read_mask = 2;
 }
 
 message GetBookResponse {
