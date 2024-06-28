@@ -3,11 +3,11 @@ on:
   push:
     paths:
       - '**.proto'
+      - buf.yaml
+      - buf.lock
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
   delete:
-    paths:
-      - 'proto/**'
 permissions:
   contents: read
   pull-requests: write
@@ -25,6 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: bufbuild/buf-action@ce472902a172b84131eb134ad4888924cfec3b42
+      - uses: bufbuild/buf-action@v0.1
         with:
-          token: ${{ secrets.BUF_TOKEN }}
+          token: ${{ secrets.SINGLE_TENANT_BUF_TOKEN }}
