@@ -24,7 +24,7 @@ message Book {
   // The time when the book was deleted.
   google.protobuf.Timestamp delete_time = 4;
   // The title of the book.
-  string Title = 5;
+  string title = 5;
   // The name of the author.
   string author_name = 6;
   // The description of the book.
@@ -37,8 +37,6 @@ message Book {
     READ_STATUS_UNSPECIFIED = 0;
     // The book is read.
     READ_STATUS_READ = 1;
-    // The book is not read.
-    READ_STATUS_UNREAD = 2;
   }
   ReadStatus read_status = 9;
   // The read time of the book.
