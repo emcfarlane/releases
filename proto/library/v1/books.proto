@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package library.v1;
 
-//import "google/api/annotations.proto";
+//import "google/api/annotations.proto"; // TODO: add back?
 import "google/protobuf/timestamp.proto";
 
 service LibraryService {
