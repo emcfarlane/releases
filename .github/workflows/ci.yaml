@@ -3,8 +3,8 @@ on:
   push:
     paths:
       - '**.proto'
-      - buf.yaml
-      - buf.lock
+      - '**/buf.yaml'
+      - '**/buf.lock'
       - .github/workflows/ci.yaml
   pull_request:
     types: [opened, synchronize, reopened, labeled, unlabeled]
