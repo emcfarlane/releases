@@ -2,13 +2,13 @@ syntax = "proto3";
 
 package library.v1;
 
-//import "google/api/annotations.proto"; // TODO: add back?
+import "google/api/annotations.proto";
 import "google/protobuf/timestamp.proto";
 
 service LibraryService {
   // Gets a book.
   rpc GetBook(GetBookRequest) returns (GetBookResponse) {
-    //option (google.api.http) = {get: "/v1/books/*"};
+    option (google.api.http) = {get: "/v1/books/*"};
     option idempotency_level = NO_SIDE_EFFECTS;
   }
 }

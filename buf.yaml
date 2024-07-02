@@ -1,6 +1,0 @@
-version: v2
-modules:
-  - path: proto
-    name: singletenant.staging.buf.team/emcfarlane/foo
-deps:
-  - singletenant.staging.buf.team/googleapis/googleapis
