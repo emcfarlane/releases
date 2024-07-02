@@ -30,3 +30,4 @@ jobs:
         with:
           token: ${{ secrets.SINGLE_TENANT_BUF_TOKEN }}
           breaking: true
+          input: proto
