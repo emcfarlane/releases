@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: bufbuild/buf-action@48f938029c362289c40c3e045c956527d57ffad0
+      - uses: bufbuild/buf-action@2c8213c0a80a0c9ba9a89ac5fa43b47f6d9165c6
         with:
           token: ${{ secrets.SINGLE_TENANT_BUF_TOKEN }}
           breaking: true
