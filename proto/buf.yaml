@@ -1,0 +1,4 @@
+version: v2
+name: singletenant.staging.buf.team/emcfarlane/foo
+deps:
+  - singletenant.staging.buf.team/googleapis/googleapis
