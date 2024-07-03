@@ -29,5 +29,4 @@ jobs:
       - uses: bufbuild/buf-action@2c8213c0a80a0c9ba9a89ac5fa43b47f6d9165c6
         with:
           token: ${{ secrets.SINGLE_TENANT_BUF_TOKEN }}
-          breaking: true
           input: proto
