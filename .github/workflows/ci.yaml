@@ -23,4 +23,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: bufbuild/buf-action@ed/disableForkComment
         with:
-          token: ${{ secrets.SINGLE_TENANT_BUF_TOKEN }}
+          token: ${{ secrets.BUF_TOKEN }}
