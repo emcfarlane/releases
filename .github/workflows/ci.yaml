@@ -21,6 +21,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: bufbuild/buf-action@main
+      - uses: bufbuild/buf-action@ed/disableForkComment
         with:
           token: ${{ secrets.SINGLE_TENANT_BUF_TOKEN }}
