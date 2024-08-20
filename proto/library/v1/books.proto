@@ -13,6 +13,7 @@ service LibraryService {
   }
 }
 
+// Book is a resource.
 message Book {
   // Resource name of the book. It must have the format of "shelves/*/books/*".
   // For example: "shelves/shelf1/books/book2".
