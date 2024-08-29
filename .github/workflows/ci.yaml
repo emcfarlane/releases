@@ -1,8 +1,8 @@
 name: Buf CI
 on:
   push:
-  pull_request:
-    types: [opened, synchronize, reopened, labeled, unlabeled]
+  #pull_request:
+  #  types: [opened, synchronize, reopened, labeled, unlabeled]
   delete:
 permissions:
   contents: read
@@ -24,3 +24,12 @@ jobs:
       - uses: bufbuild/buf-action@main
         with:
           token: ${{ secrets.BUF_TOKEN }}
+          lint: |
+            github.event_name == 'push' && \
+            !contains(github.event.head_commit.message, 'buf skip lint')
+          format: |
+            github.event_name == 'push' && \
+            !contains(github.event.head_commit.message, 'buf skip format')
+          breaking: |
+            github.event_name == 'push' && \
+            !contains(github.event.head_commit.message, 'buf skip breaking')
