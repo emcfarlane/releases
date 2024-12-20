@@ -33,3 +33,9 @@ jobs:
           breaking: |
             github.event_name == 'push' && \
             !contains(github.event.head_commit.message, 'buf skip breaking')
+  buf_setup_action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: bufbuild/buf-setup-action@v1.48.0
+      - run: buf --version
