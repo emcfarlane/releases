@@ -21,6 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: bufbuild/buf-action@ed/disableForkComment
+      - uses: bufbuild/buf-action@ed/postLogout
         with:
-          token: ${{ secrets.BUF_TOKEN }}
+          token: ${{ secrets.SINGLE_TENANT_BUF_TOKEN }}
+          domain: singletenant.staging.buf.team
