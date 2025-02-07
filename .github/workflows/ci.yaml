@@ -23,4 +23,5 @@ jobs:
       - uses: actions/checkout@v4
       - uses: bufbuild/buf-action@main
         with:
-          token: ${{ secrets.BUF_TOKEN }}
+          token: ${{ secrets.SINGLE_TENANT_BUF_TOKEN }}
+          domain: singletenant.staging.buf.team
