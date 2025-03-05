@@ -1,4 +1,4 @@
-name: Create Buf Release
+name: Create Bufstream Release
 on:
   workflow_dispatch:
     inputs:
