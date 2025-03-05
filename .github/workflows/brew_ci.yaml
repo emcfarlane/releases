@@ -7,20 +7,17 @@ on:
     branches:
       - main
 jobs:
-  linux-arm64:
-    runs-on: ubuntu-24.04-arm
-    steps:
-      - uses: actions/checkout@v4
-      - run: |
-          /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      - run: brew install --build-from-source Formula/buf.rb
-      - run: buf --version
+  # Linux arm64 is not supported by Homebrew:
+  # https://docs.brew.sh/Homebrew-on-Linux#arm-unsupported
   linux-x86_64:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - run: |
           /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          echo >> /home/runner/.bashrc
+          echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
+          eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
       - run: brew install --build-from-source Formula/buf.rb
       - run: buf --version
   darwin-arm64:
