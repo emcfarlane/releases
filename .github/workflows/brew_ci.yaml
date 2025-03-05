@@ -1,0 +1,43 @@
+name: Buf CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  # Linux arm64 is not supported by Homebrew:
+  # https://docs.brew.sh/Homebrew-on-Linux#arm-unsupported
+  linux-x86_64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+      - run: |
+          brew install --build-from-source Formula/buf.rb
+          buf --version
+      - run: |
+          brew install --build-from-source Formula/bufstream.rb
+          bufstream --version
+  darwin-arm64:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          brew install --build-from-source Formula/buf.rb
+          buf --version
+      - run: |
+          brew install --build-from-source Formula/bufstream.rb
+          bufstream --version
+  darwin-x86_64:
+    runs-on: macos-13
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          brew install --build-from-source Formula/buf.rb
+          buf --version
+      - run: |
+          brew install --build-from-source Formula/bufstream.rb
+          bufstream --version
