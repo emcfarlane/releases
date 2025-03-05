@@ -9,7 +9,7 @@ class Buf < Formula
   checksums = {
     "darwin-arm64" => "",
     "darwin-x86_64" => "",
-    "linux-aarch64"  => "",
+    "linux-arm64"  => "",
     "linux-x86_64"  => "",
   }
 
