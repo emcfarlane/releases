@@ -35,3 +35,9 @@ jobs:
           sed -i "s/\"linux-x86_64\" => \".*\"/\"linux-x86_64\" => \"$SHA256\"/" Formula/buf.rb
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
+        with:
+          commit-message: Update buf to v${{ github.event.inputs.version }}
+          title: Update buf to v${{ github.event.inputs.version }}
+          body: |
+            Update buf to v${{ github.event.inputs.version }}
+          branch: update-buf-${{ github.event.inputs.version }}
