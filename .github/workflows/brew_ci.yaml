@@ -19,8 +19,9 @@ jobs:
           echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/runner/.bashrc
           eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
           echo "DONE"
-      - run: brew install --build-from-source Formula/buf.rb
-      - run: buf --version
+          brew doctor
+          brew install --build-from-source Formula/buf.rb
+          buf --version
   darwin-arm64:
     runs-on: macos-latest
     steps:
