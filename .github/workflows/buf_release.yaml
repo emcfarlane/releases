@@ -16,22 +16,22 @@ jobs:
       - name: Update formula
         run: |
           # Darwin arm64
-          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-${VERSION}-Darwin-arm64
-          SHA256=$(shasum -a 256 bufstream-$VERSION-Darwin-arm64 | awk '{print $1}')
+          curl -LO https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-Darwin-arm64
+          SHA256=$(shasum -a 256 buf-Darwin-arm64 | awk '{print $1}')
           sed -i "s/version \".*\"/version \"$VERSION\"/" Formula/buf.rb
           sed -i "s/sha256 \".*\"/sha256 \"$SHA256\"/" Formula/buf.rb
           sed -i "s/\"darwin-arm64\" => \".*\"/\"darwin-arm64\" => \"$SHA256\"/" Formula/buf.rb
           # Darwin x86_64
-          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-${VERSION}-Darwin-x86_64
-          SHA256=$(shasum -a 256 bufstream-$VERSION-Darwin-x86_64 | awk '{print $1}')
+          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-Darwin-x86_64
+          SHA256=$(shasum -a 256 buf-Darwin-x86_64 | awk '{print $1}')
           sed -i "s/\"darwin-x86_64\" => \".*\"/\"darwin-x86_64\" => \"$SHA256\"/" Formula/buf.rb
           # Linux arm64
-          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-${VERSION}-Linux-aarch64
-          SHA256=$(shasum -a 256 bufstream-$VERSION-Linux-aarch64 | awk '{print $1}')
+          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-Linux-aarch64
+          SHA256=$(shasum -a 256 buf-Linux-aarch64 | awk '{print $1}')
           sed -i "s/\"linux-arm64\" => \".*\"/\"linux-arm64\" => \"$SHA256\"/" Formula/buf.rb
           # Linux x86_64
-          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-${VERSION}-Linux-x86_64
-          SHA256=$(shasum -a 256 bufstream-$VERSION-Linux-x86_64 | awk '{print $1}')
+          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-Linux-x86_64
+          SHA256=$(shasum -a 256 buf-Linux-x86_64 | awk '{print $1}')
           sed -i "s/\"linux-x86_64\" => \".*\"/\"linux-x86_64\" => \"$SHA256\"/" Formula/buf.rb
       - name: Create PR
         uses: peter-evans/create-pull-request@v5
