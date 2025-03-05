@@ -19,21 +19,21 @@ jobs:
         run: |
           # Darwin arm64
           curl -LO https://buf.build/dl/bufstream/v${VERSION}/bufstream-v${VERSION}-Darwin-arm64
-          SHA256=$(shasum -a 256 bufstream-${VERSION}-Darwin-arm64 | awk '{print $1}')
+          SHA256=$(shasum -a 256 bufstream-v${VERSION}-Darwin-arm64 | awk '{print $1}')
           sed -i "s/version \".*\"/version \"$VERSION\"/" base/Formula/bufstream.rb
           sed -i "s/sha256 \".*\"/sha256 \"$SHA256\"/" base/Formula/bufstream.rb
           sed -i "s/\"darwin-arm64\" => \".*\"/\"darwin-arm64\" => \"$SHA256\"/" base/Formula/bufstream.rb
           # Darwin x86_64
           curl -LO https://buf.build/dl/bufstream/v${VERSION}/bufstream-v${VERSION}-Darwin-x86_64
-          SHA256=$(shasum -a 256 bufstream-${VERSION}-Darwin-x86_64 | awk '{print $1}')
+          SHA256=$(shasum -a 256 bufstream-v${VERSION}-Darwin-x86_64 | awk '{print $1}')
           sed -i "s/\"darwin-x86_64\" => \".*\"/\"darwin-x86_64\" => \"$SHA256\"/" base/Formula/bufstream.rb
           # Linux arm64
           curl -LO https://buf.build/dl/bufstream/v${VERSION}/bufstream-v${VERSION}-Linux-aarch64
-          SHA256=$(shasum -a 256 bufstream-${VERSION}-Linux-aarch64 | awk '{print $1}')
+          SHA256=$(shasum -a 256 bufstream-v${VERSION}-Linux-aarch64 | awk '{print $1}')
           sed -i "s/\"linux-arm64\" => \".*\"/\"linux-arm64\" => \"$SHA256\"/" base/Formula/bufstream.rb
           # Linux x86_64
           curl -LO https://buf.build/dl/bufstream/v${VERSION}/bufstream-v${VERSION}-Linux-x86_64
-          SHA256=$(shasum -a 256 bufstream-${VERSION}-Linux-x86_64 | awk '{print $1}')
+          SHA256=$(shasum -a 256 bufstream-v${VERSION}-Linux-x86_64 | awk '{print $1}')
           sed -i "s/\"linux-x86_64\" => \".*\"/\"linux-x86_64\" => \"$SHA256\"/" base/Formula/bufstream.rb
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
