@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout tap
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Update formula
         run: |
           # Darwin arm64
@@ -34,4 +34,4 @@ jobs:
           SHA256=$(shasum -a 256 buf-Linux-x86_64 | awk '{print $1}')
           sed -i "s/\"linux-x86_64\" => \".*\"/\"linux-x86_64\" => \"$SHA256\"/" Formula/buf.rb
       - name: Create PR
-        uses: peter-evans/create-pull-request@v5
+        uses: peter-evans/create-pull-request@v7
