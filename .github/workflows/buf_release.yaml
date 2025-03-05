@@ -13,26 +13,28 @@ jobs:
     steps:
       - name: Checkout tap
         uses: actions/checkout@v4
+        with:
+          path: base
       - name: Update formula
         run: |
           # Darwin arm64
           curl -LO https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-Darwin-arm64
           SHA256=$(shasum -a 256 buf-Darwin-arm64 | awk '{print $1}')
-          sed -i "s/version \".*\"/version \"$VERSION\"/" Formula/buf.rb
-          sed -i "s/sha256 \".*\"/sha256 \"$SHA256\"/" Formula/buf.rb
-          sed -i "s/\"darwin-arm64\" => \".*\"/\"darwin-arm64\" => \"$SHA256\"/" Formula/buf.rb
+          sed -i "s/version \".*\"/version \"$VERSION\"/" base/Formula/buf.rb
+          sed -i "s/sha256 \".*\"/sha256 \"$SHA256\"/" base/Formula/buf.rb
+          sed -i "s/\"darwin-arm64\" => \".*\"/\"darwin-arm64\" => \"$SHA256\"/" base/Formula/buf.rb
           # Darwin x86_64
-          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-Darwin-x86_64
+          curl -LO https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-Darwin-x86_64
           SHA256=$(shasum -a 256 buf-Darwin-x86_64 | awk '{print $1}')
-          sed -i "s/\"darwin-x86_64\" => \".*\"/\"darwin-x86_64\" => \"$SHA256\"/" Formula/buf.rb
+          sed -i "s/\"darwin-x86_64\" => \".*\"/\"darwin-x86_64\" => \"$SHA256\"/" base/Formula/buf.rb
           # Linux arm64
-          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-Linux-aarch64
+          curl -LO https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-Linux-aarch64
           SHA256=$(shasum -a 256 buf-Linux-aarch64 | awk '{print $1}')
-          sed -i "s/\"linux-arm64\" => \".*\"/\"linux-arm64\" => \"$SHA256\"/" Formula/buf.rb
+          sed -i "s/\"linux-arm64\" => \".*\"/\"linux-arm64\" => \"$SHA256\"/" base/Formula/buf.rb
           # Linux x86_64
-          curl -LO https://github.com/bufbuild/buf/releases/download/${VERSION}/buf-Linux-x86_64
+          curl -LO https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-Linux-x86_64
           SHA256=$(shasum -a 256 buf-Linux-x86_64 | awk '{print $1}')
-          sed -i "s/\"linux-x86_64\" => \".*\"/\"linux-x86_64\" => \"$SHA256\"/" Formula/buf.rb
+          sed -i "s/\"linux-x86_64\" => \".*\"/\"linux-x86_64\" => \"$SHA256\"/" base/Formula/buf.rb
       - name: Create PR
         uses: peter-evans/create-pull-request@v7
         with:
