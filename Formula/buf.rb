@@ -2,9 +2,9 @@ class Buf < Formula
   desc "The best way of working with Protocol Buffers."
   homepage "https://buf.build"
   head "https://github.com/bufbuild/buf.git", branch: "main"
-  url "https://github.com/bufbuild/buf/releases/download/v${VERSION}/buf-Darwin-arm64"
-  sha256 "4a215517d0bcb37c47b9178e2668d7651a7fef9a482cef482227ad09796cdfc0"
   version "1.50.0"
+  url "https://github.com/bufbuild/buf/releases/download/v#{version}/buf-Darwin-arm64"
+  sha256 "4a215517d0bcb37c47b9178e2668d7651a7fef9a482cef482227ad09796cdfc0"
 
   checksums = {
     "darwin-arm64" => "4a215517d0bcb37c47b9178e2668d7651a7fef9a482cef482227ad09796cdfc0",
