@@ -43,3 +43,4 @@ jobs:
           body: |
             Update buf to v${{ github.event.inputs.version }}
           branch: update-buf-${{ github.event.inputs.version }}
+          path: base
