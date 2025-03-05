@@ -1,0 +1,33 @@
+name: Buf CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  linux-arm64:
+    runs-on: ubuntu-24.04-arm
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install --build-from-source Formula/buf.rb
+      - run: buf --version
+  linux-x86_64:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install --build-from-source Formula/buf.rb
+      - run: buf --version
+  darwin-arm64:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install --build-from-source Formula/buf.rb
+      - run: buf --version
+  darwin-x86_64:
+    runs-on: macos-13
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install --build-from-source Formula/buf.rb
+      - run: buf --version
