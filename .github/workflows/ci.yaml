@@ -14,9 +14,11 @@ jobs:
     steps:
     - name: Dump GitHub context
       env:
+        GITHUB_REF_A: ${{ github.ref }}
+        GITHUB_REF_NAME_A: ${{ github.ref_NAME }}
         GITHUB_CONTEXT: ${{ toJson(github) }}
       run: |
-        echo "$GITHUB_CONTEXT"
+        env
   buf:
     runs-on: ubuntu-latest
     steps:
